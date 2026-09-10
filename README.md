@@ -18,6 +18,10 @@ sudo apt install stow
 stow -t ~ dirname
 ```
 
+# Terminal Tools:
+- jq
+- ripgrep
+
 # Tmux
 Clone TPM
 ```bash
