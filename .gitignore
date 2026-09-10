@@ -1,0 +1,6 @@
+.DS_Store
+*.swp
+*.tmp
+
+# Ignore tmux plugins
+tmux/.config/tmux/plugins/
