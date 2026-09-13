@@ -21,6 +21,7 @@ stow -t ~ dirname
 # Terminal Tools:
 - jq
 - ripgrep
+- ncdu <!--TODO add it in the install script-->
 
 # Tmux
 Clone TPM
