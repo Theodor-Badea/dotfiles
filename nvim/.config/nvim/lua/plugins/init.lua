@@ -101,6 +101,33 @@ return {
       end,
     },
 
+    {
+      "3rd/image.nvim",
+      build = false,
+      ft = { "markdown", "vimwiki" },
+      opts = {
+        processor = "magick_cli",
+      },
+      config = function(_, opts)
+        require("image").setup(opts)
+
+        -- Use :ImageToggle to enable or disable inline image rendering.
+        vim.api.nvim_create_user_command("ImageToggle", function()
+          local image = require("image")
+          if image.is_enabled() then
+            image.disable()
+          else
+            image.enable()
+          end
+        end, { desc = "Toggle image.nvim rendering" })
+      end,
+    },
+
+    {
+      "OXY2DEV/markview.nvim",
+      lazy = false,
+    },
+
     -- don't close the menu
     
 
