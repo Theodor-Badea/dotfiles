@@ -36,6 +36,17 @@ vim.schedule(function()
   require "mappings"
 end)
 
+-- Creates a custom command `:ToggleVirtText` to flip virtual text on/off instantly
+vim.api.nvim_create_user_command("ToggleDiagnostics", function()
+    local current = vim.diagnostic.config().virtual_text
+    local next_state = not current
+    vim.diagnostic.config({
+        virtual_text = next_state,
+        underline = next_state,
+        signs = next_state,
+    })
+    print("Diagnostics visual display: " .. tostring(next_state))
+end, {})
 
 -- set tab to 4 spaces
 vim.opt.tabstop = 4
