@@ -6,7 +6,9 @@
 local M = {}
 
 M.base46 = {
-	theme = "gruvchad",
+	theme = "obsidian-ember",
+	-- Let NvChad clear theme backgrounds without adding a transparency plugin.
+	transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },

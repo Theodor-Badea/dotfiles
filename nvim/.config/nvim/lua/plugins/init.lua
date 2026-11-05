@@ -26,7 +26,7 @@ return {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
   		ensure_installed = {
-  			"vim", "lua", "vimdoc",
+  			"vim", "lua", "vimdoc", "java",
         "html", "css", "c", "cpp", "python", "javascript", "asm"
   		},
   	},
@@ -61,12 +61,17 @@ return {
  
   {
     "iamcco/markdown-preview.nvim",
+    lazy = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    -- FIX: Use a shell command instead of the Vimscript function
+    -- Install the preview server dependencies when Lazy installs the plugin.
     build = "cd app && npm install", 
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
+      -- Define the commands even when the current buffer is not Markdown.
+      vim.g.mkdp_command_for_global = 1
+      vim.g.mkdp_theme = "dark"
+      vim.g.mkdp_browser = "google-chrome"
     end,
   }, 
 
