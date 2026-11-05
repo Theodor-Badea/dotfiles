@@ -31,6 +31,45 @@ Clone TPM
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
+# Git
+
+Git configuration lives in the `git` Stow package and is installed at
+`~/.config/git/config`. It is independent of the NvChad configuration under
+`~/.config/nvim`, so enabling it does not change Neovim behavior.
+
+Install or update it from this repository with:
+
+```bash
+stow -R -t ~ git
+```
+
+The configuration provides:
+
+- `git l` — a colorful, compact graph of all local and remote branches,
+  including relative commit times and authors.
+- `git ll` — the same history with file statistics.
+- `git last` — the latest commit and its statistics.
+- `git s` — short status with the current branch and upstream information.
+- `git co`, `git sw`, and `git cm` — shorter checkout, switch, and commit
+  commands.
+- `git amend` — amend the last commit without opening an editor.
+- `git unstage` and `git unstaged` — restore staged or working-tree changes.
+- `git merged` and `git unmerged` — list branches merged or not merged into
+  the current branch.
+
+It also sets `main` as the default initial branch, automatically sets an
+upstream on the first push of a new branch, sorts branches by recent activity
+and tags by version, uses the histogram diff algorithm and `zdiff3` conflict
+style, and enables Git's recorded-resolution helper (`rerere`). These are
+ordinary Git settings and do not require GitHub CLI or any additional plugin.
+
+To inspect the effective settings and aliases:
+
+```bash
+git config --list --show-origin
+git config --get-regexp '^alias\.'
+```
+
 ## Neovim plugins
 
 This repository uses NvChad with Lazy.nvim to manage Neovim plugins.

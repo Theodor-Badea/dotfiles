@@ -1,0 +1,50 @@
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[init]
+	defaultBranch = main
+
+[push]
+	# The first push of a new branch automatically sets its upstream.
+	autoSetupRemote = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
+
+[diff]
+	algorithm = histogram
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[help]
+	autocorrect = prompt
+
+[alias]
+	# A compact, colorful history view. --all includes every local and remote ref.
+	l = log --graph --all --decorate --color=always --pretty=format:%C(auto)%h%d%x20%s%x20%C(dim)%C(white)(%cr)%x20%C(bold)%C(blue)<%an>%Creset
+	# Useful variants of the history view.
+	ll = log --graph --all --decorate --stat
+	last = log -1 HEAD --stat
+
+	# Short everyday commands.
+	s = status --short --branch
+	co = checkout
+	sw = switch
+	cm = commit
+	amend = commit --amend --no-edit
+	unstage = restore --staged
+	unstaged = restore
+
+	# Show which branches have been merged into the current branch.
+	merged = branch --merged
+	unmerged = branch --no-merged
